@@ -16,7 +16,7 @@ h6, .h6 {
   margin-top: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
-  color: #fff;
+  color: #000;
 }
 
 
@@ -36,8 +36,8 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #000;
-  border-bottom: 2px #757575;
+  background-color: #fff;
+  border-bottom: 5px #000;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
 }
@@ -102,7 +102,7 @@ h6, .h6 {
 }
 .blog-description {
   font-size: 20px;
-  color: #999;
+  color: #000;
 }
 
 
