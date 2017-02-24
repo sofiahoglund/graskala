@@ -1,48 +1,46 @@
-  <?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package Snaps
+ * @since Snaps 1.0
+ */
 
+get_header(); ?>
 
-  <!--<div class="row"> -->
-    <?php $i=0; ?>
-   <!-- <div class="col-md-3 portfolio-item"> -->
+		<div id="primary" class="content-area">
+			<div id="content" class="site-content" role="main">
 
-      <?php 
-      if ( have_posts() ) : while ( have_posts() ) : the_post();
-      ?>
+			<?php if ( have_posts() ) : ?>
 
-      <?php if ($i%3==0) {  ?>
-      <div class="row">
-      <?php } ?>
-      
-      <div class="col-md-4">
-       <?php get_template_part( 'content', get_post_format() ); ?>
-      </div>
+				<?php /* Start the Loop */ ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-         <?php $i++; ?>
+					<?php
+						/* Include the Post-Format-specific template for the content.
+						 * If you want to overload this in a child theme then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+						get_template_part( 'content', get_post_format() );
+					?>
 
-      <?php if($i%3==0) { // if counter is multiple of 3 ?>
-          </div>
-      <?php } ?>
+				<?php endwhile; ?>
 
+				<?php snaps_content_nav( 'nav-below' ); ?>
 
-      <?php
-      endwhile; endif; 
-      ?>
+			<?php else : ?>
 
-      <?php if($i%3!=0) { // put closing div if loop is not exactly a multiple of 3 ?>
-      </div>
-      <?php } ?>
+				<?php get_template_part( 'no-results', 'index' ); ?>
 
-      <nav>
-            <ul class="pager">
-              <li><a href="#">Previous</a></li>
-              <li><a href="#">Next</a></li>
-            </ul>
-          </nav>
+			<?php endif; ?>
 
-    </div> <!-- /.blog-main -->
-
-    <?php get_sidebar(); ?>
-
-  </div> <!-- /.row -->
+			</div><!-- #content .site-content -->
+		</div><!-- #primary .content-area -->
 
 <?php get_footer(); ?>

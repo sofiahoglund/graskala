@@ -1,11 +1,10 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
- *
- * @package Snaps
- * @since Snaps 1.0
+ * The Footer widget areas.
  */
+?>
 
+<?php
 	/* The footer widget area is triggered if any of the areas
 	 * have widgets. So let's check that first.
 	 *
@@ -18,7 +17,7 @@
 		return;
 	// If we get this far, we have widgets. Let do this.
 ?>
-<div id="secondary">
+<div id="supplementary">
 	<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
 	<div id="first" class="widget-area" role="complementary">
 		<?php dynamic_sidebar( 'footer-1' ); ?>

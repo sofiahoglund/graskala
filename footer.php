@@ -1,14 +1,33 @@
- </div> <!-- /.container -->
+<?php
+/**
+ * The template for displaying the footer.
+ *
+ * Contains the closing of the id=main div and all content after
+ *
+ * @package Snaps
+ * @since Snaps 1.0
+ */
+?>
 
-		<footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
-    </footer>
+	</div><!-- #main .site-main -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<?php wp_footer(); ?> 
-  </body>
+	<?php get_sidebar(); ?>
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="social-menu">
+	        <?php if ( has_nav_menu( 'social' ) ) {
+	            wp_nav_menu( array( 'theme_location' => 'social', 'container' => 'false', 'menu_class' => 'menu-social' ));
+	        } ?>
+	    </div><!-- .social-menu -->
+		<div class="site-info">
+			<?php do_action( 'snaps_credits' ); ?>
+			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'snaps' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'snaps' ), 'WordPress' ); ?></a>.
+			<?php printf( __( 'Theme: %1$s by %2$s.', 'snaps' ), 'Snaps', '<a href="http://graphpaperpress.com/" rel="designer">Graph Paper Press</a>' ); ?>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon .site-footer -->
+</div><!-- #page .hfeed .site -->
+
+<?php wp_footer(); ?>
+
+</body>
 </html>
